@@ -14,6 +14,9 @@ board_cols = 3
 circle_rad = 60
 circle_width = 15
 circle_color = (239, 231, 200)
+cross_width = 25
+space = 55
+cross_color = (66, 66, 66)
 
 screen = pygame.display.set_mode((width, height))
 screen.fill(bg_color)
@@ -39,7 +42,8 @@ def draw_figures():
 			if board[row][col] == 1:
 				pygame.draw.circle(screen, circle_color, (int(col * 200 + 100), int(row * 200 + 100)),circle_rad, circle_width)
 			elif board[row][col] == 2:
-				pass
+				pygame.draw.line(screen, cross_color, (col * 200 + space, row *200 + 200 - space), (col * 200 + 200 - space, row * 200 +space), cross_width)
+				pygame.draw.line(screen, cross_color, (col * 200 + space, row * 200 + space),(col * 200 + 200 - space, row * 200 + 200 - space), cross_width)
 
 def mark_square(row, col, player):
 	board[row][col] = player
